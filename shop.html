@@ -6,30 +6,197 @@
     <title>Kato Builds - Budget PC Builder</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="shop.css">
-    <script src="shop.js"></script>
 </head>
 <body>
 <header>
     <!-- Title -->
     <div class="site-title">Kato Builds</div>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <ul class="nav-links">
-            <li><a href="index.html">About</a></li>
-            <li><a href="shop.html" class="active">Shop</a></li>
-        </ul>
-    </nav>
-</header>
+    <!-- Sidebar -->
+    <aside id="sidebar">
+        <h1>Kato Builds</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">About Me</a></li>
+                <li><a href="#bundles">Bundles</a></li>
+                <li><a href="#cpu">CPUs</a></li>
+                <li><a href="#gpu">GPUs</a></li>
+                <li><a href="#Motherboard">Motherboards</a></li>
+                <li><a href="#powersupply">Powersupply</a></li>
+                <li><a href="#Ram">Rams</a></li>
+                <li><a href="#Storage">Storages</a></li>
+                <li><a href="#Case">Cases</a></li>
+                <li><a href="#CPU Fans">Cpu Fans</a></li>
+                <li><a href="#Monitor">Monitors</a></li>
+            </ul>
+        </nav>
+    </aside>
 
+    <!-- Sidebar toggle button -->
+    <button id="sidebar-toggle">☰</button>
+</header>
 <main>
     <section id="intro">
-        <h2>Build Your Dream PC</h2>
-        <p>Choose parts and bundles to create your custom PC.</p>
+        <video autoplay muted loop playsinline id="hero-video">
+            <source src="Tech background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="intro-content">
+            <h2>Build Your Dream PC</h2>
+            <p>Choose parts and bundles to create your custom PC.</p>
+        </div>
     </section>
 
-    <!-- CPU -->
+
+
+    <section id="bundles">
+        <h2>Complete PC Bundles</h2>
+        <div class="grid">
+
+            <!-- Budget Gaming Bundle -->
+            <div class="item bundle">
+                <h3>Budget Gaming Bundle</h3>
+                <div class="bundle-parts">
+                    <img src="img/AMD_Ryzen_5_5500-removebg-preview.png" alt="Ryzen 5 5500">
+                    <img src="img/MSI-B450M-A-Pro-Max.png" alt="B450M Motherboard">
+                    <img src="img/Gigabyte-RTX-3050-Windforce-OC-6GB.png" alt="RTX 3050">
+                    <img src="img/Corsair_Vengeance_LPX_8gb_1x8_3200mhz_Ddr4_Memory_Black-b_2048x-removebg-preview.png" alt="8GB DDR4 RAM">
+                    <img src="img/Kingston_A400_240GB_SSD-removebg-preview.png" alt="240GB SSD">
+                    <img src="img/ASUS%20RTX%204080%20TUF%2016GB.png" alt="ATX Case">
+                    <img src="img/CX550_01-removebg-preview.png" alt="550W PSU">
+                    <img src="img/ASUS%20VG249Q%2024%20IPS%20144Hz.png" alt="1080p Monitor">
+                    <img src="img/keyboard-removebg-preview.png" alt="Keyboard">
+                    <img src="img/Mouse-removebg-preview.png" alt="Mouse">
+                </div>
+                <p><strong>Specs:</strong> AMD Ryzen 5 5500, MSI B450M Motherboard, RTX 3050 6GB, 8GB DDR4 RAM, 240GB SSD, 1080p 144Hz Monitor, 550W PSU, ATX Case. Includes <strong>free keyboard and mouse</strong>.</p>
+                <p class="price">₱35,999</p>
+                <button onclick="addToCart('Budget Gaming Bundle', 35999)">Add to Cart</button>
+            </div>
+
+            <!-- Mid-Range Streaming Bundle -->
+            <div class="item bundle">
+                <h3>Mid-Range Streaming Bundle</h3>
+                <div class="bundle-parts">
+                    <img src="img/Intel_Core_Ultra_5_225F-removebg-preview.png" alt="Intel i5-14400F">
+                    <img src="img/Gigabyte-B760M-DS3H.png" alt="B760 Motherboard">
+                    <img src="img/MSI%20RTX4070%20Gaming%20X%2012GB.png" alt="RTX 4070">
+                    <img src="img/1_135e2554-c36c-4d63-978c-74eced7a123f-removebg-preview.png" alt="16GB DDR4 RAM">
+                    <img src="img/Samsung_970_EVO_Plus_1TB_NVMe_SSD-removebg-preview.png" alt="1TB NVMe SSD">
+                    <img src="img/Lian_Li_PC-O11_Dynamic-removebg-preview.png" alt="Mid Tower Case">
+                    <img src="img/Seasonic-S12III-650-SSR-650GB3-650W-80-Bronze-ATX12V-Power-Supply-bermor-removebg-preview.png" alt="650W PSU">
+                    <img src="img/ASUS%20VG249Q%2024%20IPS%20144Hz.png" alt="144Hz Monitor">
+                    <img src="img/keyboard-removebg-preview.png" alt="Keyboard">
+                    <img src="img/Mouse-removebg-preview.png" alt="Mouse">
+                    <img src="img/Headset-removebg-preview.png" alt="Gaming Headset">
+                </div>
+                <p><strong>Specs:</strong> Intel Core Ultra 5 225F, Gigabyte B760M Motherboard, RTX 4070 12GB, 16GB DDR4 RAM, 1TB NVMe SSD, 144Hz Monitor, 650W PSU, Mid Tower Case. Includes <strong>free keyboard, mouse, and headset</strong>.</p>
+                <p class="price">₱78,999</p>
+                <button onclick="addToCart('Mid-Range Streaming Bundle', 78999)">Add to Cart</button>
+            </div>
+
+            <!-- High-End Creator Bundle -->
+            <div class="item bundle">
+                <h3>High-End Creator Bundle</h3>
+                <div class="bundle-parts">
+                    <img src="img/Intel_Core_i9-14900K-removebg-preview.png" alt="Intel i9-14900K">
+                    <img src="img/ASUS-ROG-Strix-Z790-E.png" alt="Z790 Motherboard">
+                    <img src="img/Gigabyte_RTX_4090_Gaming_OC_24GB-removebg-preview.png" alt="RTX 4090">
+                    <img src="img/corsair-dominator-platinum-rgb-32gb-ddr5-6000mhz-cover-removebg-preview.png" alt="32GB DDR5 RAM">
+                    <img src="img/WD_Black_SN850X_2TB_NVMe_SSD-removebg-preview.png" alt="2TB NVMe SSD">
+                    <img src="img/Thermaltake_Tower_900_Full_Tower-removebg-preview.png" alt="Full Tower Case">
+                    <img src="img/ASUS%20ROG%20STRIX%201000W%20Gold.png" alt="1000W PSU">
+                    <img src="img/LG_27GP850-B_27_Nano_IPS_180Hz-removebg-preview.png" alt="4K Monitor">
+                    <img src="img/keyboard-removebg-preview.png" alt="Mechanical Keyboard">
+                    <img src="img/Mouse-removebg-preview.png" alt="Gaming Mouse">
+                    <img src="img/Headset-removebg-preview.png" alt="Studio Headset">
+                </div>
+                <p><strong>Specs:</strong> Intel Core i9-14900K, ASUS Z790 Motherboard, RTX 4090 24GB, 32GB DDR5 RAM, 2TB NVMe SSD, 4K Monitor, 1000W PSU, Full Tower Case. Includes <strong>free mechanical keyboard, gaming mouse, and studio headset</strong>.</p>
+                <p class="price">₱199,999</p>
+                <button onclick="addToCart('High-End Creator Bundle', 199999)">Add to Cart</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Bundle Comparison Table -->
+    <section id="bundle-comparison">
+        <h2>Compare Bundles</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>Component</th>
+                    <th>Budget Gaming</th>
+                    <th>Mid-Range Streaming</th>
+                    <th>High-End Creator</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>CPU</td>
+                    <td>AMD Ryzen 5 5500</td>
+                    <td>Intel Core Ultra 5 225F</td>
+                    <td>Intel Core i9-14900K</td>
+                </tr>
+                <tr>
+                    <td>Motherboard</td>
+                    <td>MSI B450M A-Pro Max</td>
+                    <td>Gigabyte B760M DS3H</td>
+                    <td>ASUS ROG Strix Z790-E</td>
+                </tr>
+                <tr>
+                    <td>GPU</td>
+                    <td>Gigabyte RTX 3050 6GB</td>
+                    <td>MSI RTX 4070 12GB</td>
+                    <td>Gigabyte RTX 4090 24GB</td>
+                </tr>
+                <tr>
+                    <td>RAM</td>
+                    <td>8GB DDR4</td>
+                    <td>16GB DDR4</td>
+                    <td>32GB DDR5</td>
+                </tr>
+                <tr>
+                    <td>Storage</td>
+                    <td>240GB SSD</td>
+                    <td>1TB NVMe SSD</td>
+                    <td>2TB NVMe SSD</td>
+                </tr>
+                <tr>
+                    <td>Case</td>
+                    <td>ATX Case</td>
+                    <td>Lian Li PC-O11 Dynamic</td>
+                    <td>Thermaltake Tower 900</td>
+                </tr>
+                <tr>
+                    <td>PSU</td>
+                    <td>Corsair CX550 550W</td>
+                    <td>Seasonic S12III 650W</td>
+                    <td>ASUS ROG Strix 1000W Gold</td>
+                </tr>
+                <tr>
+                    <td>Monitor</td>
+                    <td>ASUS VG249Q 24” 1080p 144Hz</td>
+                    <td>ASUS VG249Q 24” 1080p 144Hz</td>
+                    <td>LG 27GP850-B 27” 4K 180Hz</td>
+                </tr>
+                <tr>
+                    <td>Peripherals</td>
+                    <td>Free Keyboard & Mouse</td>
+                    <td>Free Keyboard, Mouse & Headset</td>
+                    <td>Free Mechanical Keyboard, Gaming Mouse & Studio Headset</td>
+                </tr>
+                <tr>
+                    <td><strong>Price</strong></td>
+                    <td><strong>₱35,999</strong></td>
+                    <td><strong>₱78,999</strong></td>
+                    <td><strong>₱199,999</strong></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
     <section id="cpu">
         <h2>CPUs</h2>
         <div class="grid">
@@ -185,7 +352,7 @@
         </div>
     </section>
 
-    <section id="motherboard">
+    <section id="Motherboard">
         <h2>Motherboard</h2>
         <div class="grid">
             <!-- ================= AMD Motherboards ================= -->
@@ -630,30 +797,20 @@
             </div>
         </div>
     </section>
-
-    <!-- Cart -->
-    <section id="cart">
-        <h2>Your Cart</h2>
+    <!-- Cart Sidebar -->
+    <aside id="cart-sidebar">
+        <h2>Your Cart
+            <button id="close-cart" onclick="closeCart()">×</button>
+        </h2>
         <ul id="cart-items"></ul>
         <p id="total">Total: ₱0</p>
-        <button onclick="checkout()">Checkout</button>
-    </section>
+        <button id="checkout" onclick="checkout()">Checkout</button>
+    </aside>
+
 </main>
-
-
 <footer>
-    <p>© 2025 Kato Builds. Dream PC building.</p>
+    <p>© 2025 Kato Builds.</p>
 </footer>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const menuToggle = document.querySelector(".menu-toggle");
-        const navLinks = document.querySelector(".nav-links");
-
-        menuToggle.addEventListener("click", () => {
-            navLinks.classList.toggle("show");
-        });
-    });
-</script>
-
+<script src="shop.js"></script>
 </body>
 </html>
