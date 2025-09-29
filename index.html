@@ -4,70 +4,103 @@
     <meta charset="UTF-8">
     <title>Kato Builds - About</title>
     <link type="text/css" rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/Kato Build Logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/Kato Build Logo.png">
+
 </head>
 <body>
 <header>
     <nav class="navbar">
-        <div class="logo">Kato Builds</div>
+        <div class="logo">
+            <img src="img/Kato Build Logo.png" alt="Kato Builds Logo">
+            <span>Kato Builds</span>
+        </div>
+
         <ul class="nav-links">
             <li><a href="index.html" class="active">About</a></li>
             <li><a href="shop.html">Shop</a></li>
         </ul>
     </nav>
 </header>
-
-<section id="hero">
-    <video autoplay muted loop playsinline id="hero-video">
-        <source src="Tech background.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+<section id="hero" class="video-section">
+    <video autoplay muted loop playsinline>
+        <source src="Video/Tech background.mp4" type="video/mp4">
     </video>
-    <div class="hero-content">
+    <div class="overlay-content">
         <h1>Build Your Dream PC</h1>
         <p>Affordable. Powerful. Custom-build.</p>
         <a href="shop.html" class="cta-btn">Start Shopping</a>
     </div>
 </section>
 
-<section id="why-shop" class="content">
-    <h2>Why Shop With Us?</h2>
-    <div class="features-grid">
-        <div class="feature-card">
-            <img src="img/Cpu.png" alt="Wide Range">
-            <h3>Wide Range</h3>
-            <p>Choose from Intel, AMD, NVIDIA, and more trusted brands.</p>
-        </div>
-        <div class="feature-card">
-            <img src="img/Bundles.png" alt="Affordable Bundles">
-            <h3>Affordable Bundles</h3>
-            <p>Pre-made builds designed to fit your budget and needs.</p>
-        </div>
-        <div class="feature-card">
-            <img src="img/Secure.png" alt="Secure Checkout">
-            <h3>Secure Checkout</h3>
-            <p>Fast, encrypted, and hassle-free shopping experience.</p>
-        </div>
-        <div class="feature-card">
-            <img src="img/Support.png" alt="Customer Support">
-            <h3>Customer Support</h3>
-            <p>We help you choose the right parts and solve issues quickly.</p>
+<section id="about-us" class="video-section">
+    <video autoplay muted loop playsinline>
+        <source src="Video/About Us.mp4" type="video/mp4">
+    </video>
+    <div class="overlay-content">
+        <h2>About Us</h2>
+        <p>Kato Builds is your go-to online store for custom PCs and components...</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Quality Parts</h3>
+                <p>We only sell parts from reliable brands...</p>
+            </div>
+            <div class="feature-card">
+                <h3>Budget-Friendly</h3>
+                <p>Custom-builds and bundles for every budget...</p>
+            </div>
+            <div class="feature-card">
+                <h3>Expert Advice</h3>
+                <p>Our support team helps you pick the right parts...</p>
+            </div>
         </div>
     </div>
 </section>
 
-<section id="developer" class="content">
-    <h2>Website Developer</h2>
-    <div class="hud-panel" onclick="this.classList.toggle('active')">
-        <h3>Click to View Developer Info</h3>
-        <div class="hud-content">
-            <p>This site was developed by <strong>John Carlo M. Manalo</strong>.</p>
-            <p>Designed with a futuristic theme for a Tech-amazing shopping experience online.</p>
-            <img src="img/Developer.jpg" alt="Developer Photo">
+<section id="why-us" class="video-section">
+    <video autoplay muted loop playsinline>
+        <source src="Video/WhyUs.mp4" type="video/mp4">
+    </video>
+    <div class="overlay-content">
+        <h2>Why Shop With Us?</h2>
+        <p>We offer high-performance PC components, pre-made builds, and expert guidance...</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Wide Range</h3>
+                <p>Choose from Intel, AMD, NVIDIA, and other trusted brands.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Affordable Bundles</h3>
+                <p>Pre-made builds designed to fit your budget and needs.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Secure Checkout</h3>
+                <p>Fast, encrypted, and hassle-free shopping experience.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Customer Support</h3>
+                <p>We help you choose the right parts and solve issues quickly.</p>
+            </div>
         </div>
     </div>
 </section>
 
+<!-- Developer Button -->
+<button id="developer-btn">Website Developer</button>
+
+<!-- Developer HUD Overlay -->
+<div id="developer-overlay">
+    <div class="hud-panel">
+        <h2>Website Developer</h2>
+        <p>This site was developed by <strong>John Carlo M. Manalo</strong>.</p>
+        <p>Designed with a futuristic theme for a tech-amazing shopping experience online.</p>
+        <img src="img/Developer.jpg" alt="Developer Photo">
+        <button id="close-developer">Close</button>
+    </div>
+</div>
 <footer>
     <p>© 2025 Kato Builds. All rights reserved.</p>
 </footer>
+<script src="index.js"></script>
 </body>
 </html>
