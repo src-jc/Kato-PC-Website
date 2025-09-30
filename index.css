@@ -206,7 +206,7 @@ body {
 }
 
 .feature-card {
-    flex: 1 1 22%; /* Each card takes ~22% of the row, adjust as needed */
+    flex: 1 1 22%;
     box-sizing: border-box;
     text-align: center;
 }

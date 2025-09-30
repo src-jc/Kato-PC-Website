@@ -1,33 +1,61 @@
-let cart = [];
-function addToCart(item, price) {
-    cart.push({ item, price });
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name, price) {
+    cart.push({ name, price });
+    localStorage.setItem("cart", JSON.stringify(cart)); // save immediately
     updateCart();
     document.getElementById("cart-sidebar").classList.add("active");
 }
+
 function updateCart() {
     const cartList = document.getElementById("cart-items");
-    cartList.innerHTML = ""; // Clear previous items
+    cartList.innerHTML = "";
     let total = 0;
-    cart.forEach((c) => {
+
+    cart.forEach((c, index) => {
         const li = document.createElement("li");
-        li.textContent = `${c.item} - ₱${c.price}`;
+        li.textContent = `${c.name} - ₱${c.price.toLocaleString()}`;
+
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = "×";
+        removeBtn.classList.add("remove-btn");
+        removeBtn.onclick = function () {
+            removeFromCart(index);
+        };
+
+        li.appendChild(removeBtn);
         cartList.appendChild(li);
+
         total += c.price;
     });
-    document.getElementById("total").textContent = `Total: ₱${total}`;
+
+    document.getElementById("total").textContent = `Total: ₱${total.toLocaleString()}`;
+    localStorage.setItem("cart", JSON.stringify(cart)); // keep saved
 }
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCart();
+}
+
 function checkout() {
     if (cart.length === 0) {
         alert("Your cart is empty!");
         return;
     }
-    alert(`Thank you for your purchase! Total: ₱${cart.reduce((a, b) => a + b.price, 0)}`);
-    cart = [];
-    updateCart();
+    localStorage.setItem("cart", JSON.stringify(cart));
+    window.location.href = "Checkout.html";
 }
+
 function closeCart() {
     document.getElementById("cart-sidebar").classList.remove("active");
 }
+
+window.onload = function () {
+    updateCart();
+};
+
 const sidebar = document.getElementById("sidebar");
 const toggleBtn = document.getElementById("sidebar-toggle");
 
