@@ -39,10 +39,8 @@ function renderCheckout() {
 
     document.getElementById("summary-total").textContent =
         "Total: ₱" + total.toLocaleString();
-
     document.getElementById("empty-actions").style.display = "none";
     document.getElementById("checkout-actions").style.display = "flex";
-
     document.getElementById("place-order").disabled = false;
 }
 
@@ -52,12 +50,6 @@ function removeFromCheckout(index) {
     localStorage.setItem("cart", JSON.stringify(items));
     renderCheckout();
 }
-
-function clearCart() {
-    localStorage.removeItem("cart");
-    renderCheckout();
-}
-
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("form");
     if (form) {
