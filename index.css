@@ -63,6 +63,7 @@ body {
     font-size: 5rem;
     color: #00ffe7;
     text-shadow: 0 0 5px #00ffe7, 0 0 10px #00ffe7;
+    font-family: "Orbitron", sans-serif;
 }
 
 .hero-content p {
@@ -114,6 +115,8 @@ footer {
 .hero-content h1 {
     font-size: 3rem;
     color: #00ffe7;
+    font-family: "Orbitron", sans-serif;
+
 }
 
 .hero-content p {
