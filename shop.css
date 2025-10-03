@@ -464,6 +464,49 @@ footer {
     transform: scale(1.05);
 }
 
+#cart-toggle {
+    position: fixed;
+    right: 10px;
+    top: 100px;
+    background: transparent;
+    border: 2px solid #00ffe7;
+    color: #00ffe7;
+    font-size: 20px;
+    padding: 1px 1px;
+    cursor: pointer;
+    border-radius: 8px;
+    z-index: 1100;
+    box-shadow: 0 0 10px #00ffe7, 0 0 20px rgba(0,255,231,0.5), inset 0 0 10px rgba(0,255,231,0.06);
+    transition: all 0.24s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#cart-toggle:hover { background: rgba(0,255,231,0.06); transform: scale(1.04); }
+
+.cart-badge {
+    background: #ff6600;
+    color: #fff;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 4px 7px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+@media (max-width: 900px) {
+    #cart-toggle { right: 14px; top: 86px; }
+}
+
+
+@media (min-width: 901px) {
+    #cart-toggle.shifted {
+        right: 340px;
+        transform: scale(1.04);
+    }
+}
+
 #main-content {
     margin-left: 0;
     transition: margin-left 0.3s ease;
@@ -553,10 +596,9 @@ footer {
     color: #ff3300;
 }
 
-/* Keep the remove '×' button visually inside the cart item */
 #cart-sidebar li {
     position: relative;
-    padding-right: 44px; /* space for the absolute button */
+    padding-right: 44px;
 }
 
 .remove-btn {
@@ -589,13 +631,13 @@ footer {
     text-align: center;
 }
 
-/* Subtle neon-accent line under the hero */
+
 #intro::after {
     content: '';
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -1px; /* sit just under the intro */
+    bottom: -1px;
     width: 92%;
     max-width: 1200px;
     height: 4px;
@@ -605,7 +647,6 @@ footer {
     pointer-events: none;
 }
 
-/* Slightly smaller line on small screens */
 @media (max-width: 600px) {
     #intro::after {
         height: 3px;
@@ -740,9 +781,9 @@ html::-webkit-scrollbar-thumb:hover {
     }
 }
 
-/* Mobile / small screen adjustments */
+
 @media screen and (max-width: 900px) {
-    /* Make main sections stack and use single column */
+
     .grid, #search-results {
         grid-template-columns: 1fr;
         gap: 12px;
@@ -752,7 +793,6 @@ html::-webkit-scrollbar-thumb:hover {
         padding: 36px 18px;
     }
 
-    /* Reduce hero height on mobile so content is visible quickly */
     #intro {
         height: auto;
         padding: 36px 12px;
@@ -778,7 +818,7 @@ html::-webkit-scrollbar-thumb:hover {
         font-size: 14px;
     }
 
-    /* Sidebar becomes a top drawer when opened */
+
     #sidebar {
         width: 100%;
         height: auto;
@@ -798,7 +838,6 @@ html::-webkit-scrollbar-thumb:hover {
         left: 10px;
     }
 
-    /* Cart becomes a bottom drawer on mobile */
     #cart-sidebar {
         width: 100%;
         height: 42vh;
@@ -816,18 +855,18 @@ html::-webkit-scrollbar-thumb:hover {
         transform: translateY(0);
     }
 
-    /* Reduce image sizes in results cards */
+
     #search-results .item img, .item img {
         height: 90px;
     }
 
-    /* Tighter paddings on small devices */
+
     #search-results-section {
         padding: 12px;
         margin: 12px 8px 24px;
     }
 
-    /* Ensure hero accent line not too wide on mobile */
+
     #intro::after {
         width: 96%;
     }
@@ -903,6 +942,7 @@ html::-webkit-scrollbar-thumb:hover {
     padding: 24px 12px;
 }
 
+
 #search-results-section {
     max-width: 1100px;
     margin: 18px auto 40px;
@@ -913,6 +953,7 @@ html::-webkit-scrollbar-thumb:hover {
     padding: 18px;
     text-align: left;
 }
+
 
 #search-results-section {
     opacity: 0;
@@ -934,6 +975,7 @@ html::-webkit-scrollbar-thumb:hover {
     pointer-events: none;
 }
 
+
 #search-results-section > h2 {
     color: #00ffe7;
     margin: 6px 12px 12px;
@@ -949,7 +991,7 @@ html::-webkit-scrollbar-thumb:hover {
     margin-top: 8px;
 }
 
-
+/* Result card override to be slightly smaller and match section card look */
 #search-results .item {
     padding: 14px;
     border-radius: 12px;
@@ -983,6 +1025,7 @@ html::-webkit-scrollbar-thumb:hover {
     transform: translateY(-6px) scale(1.01);
     box-shadow: 0 16px 40px rgba(0,255,231,0.07);
 }
+
 
 .search-container {
     display: flex;
@@ -1060,3 +1103,11 @@ div#searchBar.search-container {
     box-shadow: 0 0 0 6px rgba(0,255,231,0.06) inset, 0 0 20px rgba(0,255,231,0.06);
     transition: box-shadow 0.6s ease;
 }
+
+.cart {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
