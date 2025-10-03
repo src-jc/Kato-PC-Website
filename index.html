@@ -87,15 +87,19 @@
         </div>
     </div>
 </section>
-<button id="developer-btn">Website Developer</button>
-<div id="developer-overlay">
-    <div class="hud-panel">
-        <h2>Website Developer</h2>
+<button id="developer-btn" class="fab" aria-haspopup="dialog" aria-controls="developer-overlay" aria-expanded="false" title="Website developer (press Enter)">
+    Developer
+</button>
+<div id="developer-overlay" role="dialog" aria-modal="true" aria-labelledby="developer-title" tabindex="-1">
+    <div class="hud-panel" role="document">
+        <h2 id="developer-title">Website Developer</h2>
         <p>This site was developed by <strong>John Carlo M. Manalo</strong>.</p>
         <p>A 2nd Year college student from ICCT Colleges - Main Campus </p>
         <p>A Website Project - OLWS1 - Web Systems and Technologies (3/1)</p>
         <img src="Images/Developer.jpg" alt="Developer Photo">
-        <button id="close-developer">Close</button>
+        <div class="hud-actions">
+            <button id="close-developer" class="close-btn">Close</button>
+        </div>
     </div>
 </div>
 <footer>

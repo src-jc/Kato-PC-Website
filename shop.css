@@ -899,12 +899,10 @@ html::-webkit-scrollbar-thumb:hover {
     background: rgba(0,255,231,0.06);
 }
 
-/* Search results container tweaks for compact layout */
 #search-results-section {
     padding: 24px 12px;
 }
 
-/* Bordered/card style for the search results section */
 #search-results-section {
     max-width: 1100px;
     margin: 18px auto 40px;
@@ -916,7 +914,6 @@ html::-webkit-scrollbar-thumb:hover {
     text-align: left;
 }
 
-/* Animation helpers for showing/hiding the results */
 #search-results-section {
     opacity: 0;
     transform: translateY(8px);
@@ -937,7 +934,6 @@ html::-webkit-scrollbar-thumb:hover {
     pointer-events: none;
 }
 
-/* Header inside the results section */
 #search-results-section > h2 {
     color: #00ffe7;
     margin: 6px 12px 12px;
@@ -945,7 +941,6 @@ html::-webkit-scrollbar-thumb:hover {
     font-family: 'Orbitron', sans-serif;
 }
 
-/* Compact grid inside results with tighter gaps */
 #search-results {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -954,7 +949,7 @@ html::-webkit-scrollbar-thumb:hover {
     margin-top: 8px;
 }
 
-/* Result card override to be slightly smaller and match section card look */
+
 #search-results .item {
     padding: 14px;
     border-radius: 12px;
@@ -989,7 +984,6 @@ html::-webkit-scrollbar-thumb:hover {
     box-shadow: 0 16px 40px rgba(0,255,231,0.07);
 }
 
-/* nicer search container */
 .search-container {
     display: flex;
     align-items: center;
@@ -1000,6 +994,19 @@ html::-webkit-scrollbar-thumb:hover {
     border-radius: 12px;
     width: min(900px, 92%);
     margin: 8px auto 0;
+}
+
+#searchBar.search-container,
+div#searchBar.search-container {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: rgba(255,255,255,0.02) !important;
+    border: 1px solid rgba(0,255,231,0.06) !important;
+    padding: 8px 10px !important;
+    border-radius: 12px !important;
+    width: min(900px, 96%) !important;
+    margin: 8px auto 0 !important;
 }
 
 .search-container .search-icon {
