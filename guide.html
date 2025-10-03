@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kato PC - Guide</title>
+    <link rel="stylesheet" href="guide.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="Images/Kato_pc.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Images/Kato_pc.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Images/Kato_pc.png" alt="Kato Builds Logo">
+            <span class="site-title">Kato PC</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="guide.html" class="active">Guide</a></li>
+        </ul>
+    </nav>
+    <header class="doc-hero">
+        <div class="container">
+            <h1>Manual Guide</h1>
+            <p>Everything you need to know about building and maintaining your PC</p>
+        </div>
+    </header>
+
+    <div class="doc-container">
+        <aside class="doc-sidebar">
+            <div class="sidebar-content">
+                <h3>Quick Navigation</h3>
+                <nav class="doc-nav">
+                    <a href="#getting-started" class="doc-nav-link active">Getting Started</a>
+                    <a href="#pc-components" class="doc-nav-link">PC Components Guide</a>
+                    <a href="#build-guide" class="doc-nav-link">Build Instructions</a>
+                    <a href="#bios-setup" class="doc-nav-link">BIOS Setup</a>
+                    <a href="#os-installation" class="doc-nav-link">OS Installation</a>
+                    <a href="#driver-installation" class="doc-nav-link">Driver Installation</a>
+                    <a href="#cable-management" class="doc-nav-link">Cable Management</a>
+                    <a href="#troubleshooting" class="doc-nav-link">Troubleshooting</a>
+                    <a href="#maintenance" class="doc-nav-link">Maintenance Tips</a>
+                    <a href="#warranty" class="doc-nav-link">Warranty Info</a>
+                </nav>
+            </div>
+        </aside>
+        <main class="doc-content">
+            <section id="getting-started" class="doc-section">
+                <h2>Getting Started</h2>
+                <p>Welcome to Kato PC! This comprehensive guide will help you understand, build, and maintain your custom PC.</p>
+                <div class="info-card">
+                    <h3>What You'll Need</h3>
+                    <ul>
+                        <li>Phillips head screwdriver (magnetic preferred)</li>
+                        <li>Anti-static wrist strap (recommended)</li>
+                        <li>Clean, well-lit workspace</li>
+                        <li>Cable ties for cable management</li>
+                        <li>Thermal paste (usually pre-applied)</li>
+                    </ul>
+                </div>
+
+                <div class="warning-card">
+                    <strong>⚠️ Important:</strong> Always work on a non-carpeted surface and ground yourself to prevent static discharge damage to components.
+                </div>
+            </section>
+            <section id="pc-components" class="doc-section">
+                <h2>PC Components Guide</h2>
+                <p>Understanding each component and its role in your system.</p>
+                <div class="component-grid">
+                    <div class="component-card">
+                        <h3>🖥️ CPU (Processor)</h3>
+                        <p>The brain of your computer. Handles all calculations and instructions.</p>
+                        <ul>
+                            <li><strong>Intel:</strong> Core i3, i5, i7, i9 series</li>
+                            <li><strong>AMD:</strong> Ryzen 3, 5, 7, 9 series</li>
+                        </ul>
+                    </div>
+                    <div class="component-card">
+                        <h3>🎮 GPU (Graphics Card)</h3>
+                        <p>Processes graphics and video. Essential for gaming and content creation.</p>
+                        <ul>
+                            <li><strong>NVIDIA:</strong> RTX 4000/3000 series</li>
+                            <li><strong>AMD:</strong> Radeon RX 7000/6000 series</li>
+                        </ul>
+                    </div>
+                    <div class="component-card">
+                        <h3>🧠 RAM (Memory)</h3>
+                        <p>Temporary storage for active programs and data.</p>
+                        <ul>
+                            <li>8GB: Basic tasks</li>
+                            <li>16GB: Gaming & multitasking</li>
+                            <li>32GB+: Content creation</li>
+                        </ul>
+                    </div>
+                    <div class="component-card">
+                        <h3>💾 Storage</h3>
+                        <p>Permanent storage for your files and programs.</p>
+                        <ul>
+                            <li><strong>SSD:</strong> Fast, for OS and programs</li>
+                            <li><strong>HDD:</strong> Slower, for bulk storage</li>
+                            <li><strong>NVMe:</strong> Fastest SSD type</li>
+                        </ul>
+                    </div>
+                    <div class="component-card">
+                        <h3>⚡ Power Supply (PSU)</h3>
+                        <p>Provides power to all components.</p>
+                        <ul>
+                            <li>80+ Bronze/Gold/Platinum ratings</li>
+                            <li>Wattage based on components</li>
+                            <li>Modular vs non-modular</li>
+                        </ul>
+                    </div>
+                    <div class="component-card">
+                        <h3>📋 Motherboard</h3>
+                        <p>Connects all components together.</p>
+                        <ul>
+                            <li>Must match CPU socket</li>
+                            <li>Form factors: ATX, Micro-ATX, Mini-ITX</li>
+                            <li>Check RAM compatibility</li>
+                        </ul>
+                    </div>
+                    <div class="component-card">
+                        <h3>❄️ CPU Cooler</h3>
+                        <p>Keeps your processor cool.</p>
+                        <ul>
+                            <li><strong>Air:</strong> Quieter, cheaper</li>
+                            <li><strong>Liquid (AIO):</strong> Better cooling</li>
+                            <li>Check clearance in case</li>
+                        </ul>
+                    </div>
+
+                    <div class="component-card">
+                        <h3>📦 Case</h3>
+                        <p>Houses all components and provides airflow.</p>
+                        <ul>
+                            <li>Size matches motherboard</li>
+                            <li>Good airflow is essential</li>
+                            <li>Cable management options</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section id="build-guide" class="doc-section">
+                <h2>Step-by-Step Build Guide</h2>
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Prepare Your Workspace</h3>
+                        <p>Clear a large, clean surface. Unbox all components and verify everything is present. Read manuals for motherboard and case.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Install CPU on Motherboard</h3>
+                        <p>Open the CPU socket lever, align the CPU (match the triangle/arrow), gently place it, and close the lever. Never force it!</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Install CPU Cooler</h3>
+                        <p>Apply thermal paste if needed (usually pre-applied). Follow cooler instructions carefully. Ensure it's securely mounted.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Install RAM</h3>
+                        <p>Check motherboard manual for optimal slots (usually A2 and B2 for 2 sticks). Open clips, align notch, press down until clips snap.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Install M.2 SSD (if applicable)</h3>
+                        <p>Locate M.2 slot, remove screw, insert SSD at 30° angle, push down, secure with screw. Some motherboards have heatsinks.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Install Motherboard I/O Shield</h3>
+                        <p>Press I/O shield into case from inside. Ensure it clicks in place on all sides.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">7</div>
+                    <div class="step-content">
+                        <h3>Install Motherboard in Case</h3>
+                        <p>Install standoffs in correct positions. Carefully lower motherboard, align with I/O shield and standoffs. Screw in securely.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">8</div>
+                    <div class="step-content">
+                        <h3>Install Power Supply</h3>
+                        <p>Position PSU with fan facing down (if case has vent) or to the side. Secure with 4 screws from the back.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">9</div>
+                    <div class="step-content">
+                        <h3>Connect Front Panel Connectors</h3>
+                        <p>Refer to motherboard manual. Connect power button, reset, HDD LED, and power LED. USB and audio headers too.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">10</div>
+                    <div class="step-content">
+                        <h3>Connect Power Cables</h3>
+                        <p>Connect 24-pin ATX, 8-pin CPU power, SATA power (if needed), and PCIe power for GPU. Ensure all connections are firm.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">11</div>
+                    <div class="step-content">
+                        <h3>Install Graphics Card</h3>
+                        <p>Remove PCIe slot covers. Insert GPU into top PCIe x16 slot. Press firmly until it clicks. Secure with screws. Connect power cables.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">12</div>
+                    <div class="step-content">
+                        <h3>Cable Management & Final Check</h3>
+                        <p>Route cables behind motherboard tray. Use cable ties. Double-check all connections. Close side panel.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="bios-setup" class="doc-section">
+                <h2>BIOS Setup</h2>
+                <div class="info-card">
+                    <h3>Accessing BIOS</h3>
+                    <p>Press <code>Delete</code>, <code>F2</code>, or <code>F12</code> during boot (check motherboard manual).</p>
+                </div>
+                <h3>Important BIOS Settings</h3>
+                <ul class="settings-list">
+                    <li><strong>Boot Order:</strong> Set your OS installation drive first</li>
+                    <li><strong>XMP/DOCP:</strong> Enable for RAM to run at advertised speed</li>
+                    <li><strong>SATA Mode:</strong> Set to AHCI for SSDs</li>
+                    <li><strong>Secure Boot:</strong> May need to disable for some OS installations</li>
+                    <li><strong>Fan Curves:</strong> Adjust for optimal cooling/noise balance</li>
+                    <li><strong>Date & Time:</strong> Set correctly for Windows activation</li>
+                </ul>
+            </section>
+            <section id="os-installation" class="doc-section">
+                <h2>Operating System Installation</h2>
+                
+                <h3>Windows 11 Installation</h3>
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Create Installation Media</h3>
+                        <p>Download Windows Media Creation Tool from Microsoft. Create bootable USB drive (8GB minimum).</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Boot from USB</h3>
+                        <p>Insert USB, restart PC, enter BIOS, set USB as first boot device. Save and exit.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Install Windows</h3>
+                        <p>Follow on-screen prompts. Select Custom installation, choose drive, format if needed. Windows will install and restart.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Initial Setup</h3>
+                        <p>Complete Windows setup: Region, keyboard, Microsoft account, privacy settings.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="driver-installation" class="doc-section">
+                <h2>Driver Installation</h2>
+                
+                <div class="warning-card">
+                    <strong>⚠️ Install drivers in this order for best results:</strong>
+                </div>
+                <ol class="driver-list">
+                    <li>
+                        <strong>Chipset Drivers</strong>
+                        <p>Download from motherboard manufacturer website (ASUS, MSI, Gigabyte, ASRock)</p>
+                    </li>
+                    <li>
+                        <strong>Graphics Card Drivers</strong>
+                        <p>NVIDIA: GeForce Experience | AMD: Adrenalin Software</p>
+                    </li>
+                    <li>
+                        <strong>Audio Drivers</strong>
+                        <p>Usually from motherboard manufacturer or Realtek</p>
+                    </li>
+                    <li>
+                        <strong>Network Drivers</strong>
+                        <p>Ethernet and WiFi drivers from motherboard manufacturer</p>
+                    </li>
+                    <li>
+                        <strong>Peripheral Drivers</strong>
+                        <p>Mouse, keyboard, RGB software if applicable</p>
+                    </li>
+                </ol>
+            </section>
+            <section id="cable-management" class="doc-section">
+                <h2>Cable Management Tips</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h3>Route Behind Motherboard Tray</h3>
+                        <p>Use the space behind the motherboard to hide cables. Most modern cases have cutouts for this purpose.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>Use Cable Ties</h3>
+                        <p>Bundle cables together with velcro straps or zip ties. Don't overtighten to allow future modifications.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>Plan Your Routes</h3>
+                        <p>Think about cable paths before connecting. Shortest route isn't always the cleanest.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>Use Modular PSU</h3>
+                        <p>Only connect cables you need. Reduces clutter significantly.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="troubleshooting" class="doc-section">
+                <h2>Common Issues & Solutions</h2>
+                <div class="troubleshoot-card">
+                    <h3>PC Won't Turn On</h3>
+                    <ul>
+                        <li>Check PSU switch is on (I position)</li>
+                        <li>Verify power cable is plugged in</li>
+                        <li>Ensure 24-pin and 8-pin CPU power connected</li>
+                        <li>Check front panel connectors</li>
+                    </ul>
+                </div>
+                <div class="troubleshoot-card">
+                    <h3>No Display Output</h3>
+                    <ul>
+                        <li>Connect monitor to GPU, not motherboard</li>
+                        <li>Check GPU power cables connected</li>
+                        <li>Reseat RAM (try one stick at a time)</li>
+                        <li>Clear CMOS (remove battery for 30 seconds)</li>
+                    </ul>
+                </div>
+                <div class="troubleshoot-card">
+                    <h3>High Temperatures</h3>
+                    <ul>
+                        <li>Check CPU cooler is properly mounted</li>
+                        <li>Verify thermal paste application</li>
+                        <li>Ensure fans are spinning</li>
+                        <li>Check case airflow (front intake, rear exhaust)</li>
+                    </ul>
+                </div>
+                <div class="troubleshoot-card">
+                    <h3>RAM Not Detected</h3>
+                    <ul>
+                        <li>Ensure RAM is fully seated (should click)</li>
+                        <li>Try different slots (check manual)</li>
+                        <li>Test one stick at a time</li>
+                        <li>Enable XMP in BIOS</li>
+                    </ul>
+                </div>
+            </section>
+            <section id="maintenance" class="doc-section">
+                <h2>Maintenance Schedule</h2>
+                <div class="maintenance-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-badge monthly">Monthly</div>
+                        <div class="timeline-content">
+                            <h3>Regular Checks</h3>
+                            <ul>
+                                <li>Monitor temperatures</li>
+                                <li>Check for Windows updates</li>
+                                <li>Update GPU drivers</li>
+                                <li>Clean dust filters</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-badge quarterly">Every 3 Months</div>
+                        <div class="timeline-content">
+                            <h3>Deep Cleaning</h3>
+                            <ul>
+                                <li>Power off and unplug PC</li>
+                                <li>Use compressed air on fans</li>
+                                <li>Clean heatsinks and radiators</li>
+                                <li>Check cable connections</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-badge yearly">Annually</div>
+                        <div class="timeline-content">
+                            <h3>Major Maintenance</h3>
+                            <ul>
+                                <li>Consider reapplying thermal paste</li>
+                                <li>Check all screws and mounting</li>
+                                <li>Update BIOS if needed</li>
+                                <li>Backup important data</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="warranty" class="doc-section">
+                <h2>Warranty Information</h2>
+                <div class="warranty-grid">
+                    <div class="warranty-card">
+                        <h3>Kato Builds Warranty</h3>
+                        <p><strong>Coverage:</strong> 1 year labor warranty on all custom builds</p>
+                        <p><strong>Includes:</strong> Free diagnostics, repairs, and technical support</p>
+                    </div>
+                    <div class="warranty-card">
+                        <h3>Component Warranties</h3>
+                        <p>All parts come with manufacturer warranties:</p>
+                        <ul>
+                            <li>CPU: 3 years (Intel/AMD)</li>
+                            <li>GPU: 2-3 years</li>
+                            <li>RAM: Lifetime (most brands)</li>
+                            <li>SSD: 3-5 years</li>
+                            <li>PSU: 5-10 years</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3>How to Make a Warranty Claim</h3>
+                    <ol>
+                        <li>Contact us through support page</li>
+                        <li>Provide order number and issue description</li>
+                        <li>We'll diagnose and provide solution</li>
+                        <li>RMA process if component replacement needed</li>
+                    </ol>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2025 Kato PC. Need help? Visit our <a href="support.html">PC Support</a></p>
+    </footer>
+    <script src="guide.js"></script>
+</body>
+</html>

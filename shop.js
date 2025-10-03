@@ -2,11 +2,9 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function addToCart(name, price) {
     cart.push({ name, price });
-    localStorage.setItem("cart", JSON.stringify(cart)); // save immediately
-    updateCart();
+    localStorage.setItem("cart", JSON.stringify(cart));
     document.getElementById("cart-sidebar").classList.add("active");
 }
-
 function updateCart() {
     const cartList = document.getElementById("cart-items");
     cartList.innerHTML = "";
@@ -30,7 +28,7 @@ function updateCart() {
     });
 
     document.getElementById("total").textContent = `Total: ₱${total.toLocaleString()}`;
-    localStorage.setItem("cart", JSON.stringify(cart)); // keep saved
+    localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 function removeFromCart(index) {
@@ -56,21 +54,10 @@ window.onload = function () {
     updateCart();
 };
 
-
 const sidebarBtn = document.getElementById('sidebar-toggle');
 const sidebar = document.getElementById('sidebar');
-
 
 sidebarBtn.addEventListener('click', () => {
     sidebar.classList.toggle('show');
 });
-
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-});
-
-
 

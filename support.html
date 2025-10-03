@@ -2,11 +2,149 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Kato Builds - Support</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="Images/Kato Build Logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="Images/Kato Build Logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kato PC - Support</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="Images/Kato_pc.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Images/Kato_pc.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="support.css">
 </head>
 <body>
-<h1>Coming Soon!</h1>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Images/Kato_pc.png" alt="Kato Builds Logo">
+            <span class="site-title">Kato PC</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="support.html" class="active">Support</a></li>
+            <li><a href="guide.html">Guide</a></li>
+        </ul>
+    </nav>
+    <header>
+        <div class="container">
+            <h1>PC Support</h1>
+            <p>Get help with your system unit issues</p>
+        </div>
+    </header>
+    <main class="container">
+        <section class="troubleshooting-section">
+            <h2>Quick Troubleshooting</h2>
+            <p>Select your issue to get started:</p>
+            <div class="issue-selector">
+                <select id="issueCategory" onchange="showTroubleshooting()">
+                    <option value="">-- Select an Issue --</option>
+                    <option value="nopower">PC Won't Turn On</option>
+                    <option value="overheating">Overheating Issues</option>
+                    <option value="slowperformance">Slow Performance</option>
+                    <option value="noiseissues">Unusual Noises</option>
+                    <option value="nodisplay">No Display Output</option>
+                    <option value="bluscreen">Blue Screen Errors</option>
+                    <option value="internetissues">Internet/Network Problems</option>
+                </select>
+            </div>
+            <div id="troubleshootingSteps" class="troubleshooting-steps"></div>
+        </section>
+
+        <section class="system-info-section">
+            <h2>System Information</h2>
+            <p>Check your browser and basic system details:</p>
+            <button onclick="getSystemInfo()" class="btn-primary">Get System Info</button>
+            <div id="systemInfo" class="system-info-display"></div>
+        </section>
+        <section class="contact-section">
+            <h2>Need Professional Help?</h2>
+            <p>If you can't resolve your issue, contact our technical support team:</p>
+            
+            <form id="supportForm" class="support-form">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="issue">Issue Type *</label>
+                    <select id="issue" name="issue" required>
+                        <option value="">-- Select Issue Type --</option>
+                        <option value="hardware">Hardware Problem</option>
+                        <option value="software">Software Problem</option>
+                        <option value="upgrade">Upgrade Consultation</option>
+                        <option value="build">Custom Build Assistance</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Problem Description *</label>
+                    <textarea id="description" name="description" rows="6" required 
+                              placeholder="Please describe your issue in detail..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="urgency">Urgency Level *</label>
+                    <select id="urgency" name="urgency" required>
+                        <option value="low">Low - Can wait a few days</option>
+                        <option value="medium">Medium - Need help within 48 hours</option>
+                        <option value="high">High - Urgent, need immediate assistance</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Submit Request</button>
+            </form>
+            <div id="formMessage" class="form-message"></div>
+        </section>
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    How often should I clean my PC?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>It's recommended to clean your PC every 3-6 months. Dust buildup can cause overheating and reduce performance. Use compressed air to clean fans and vents.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    What are safe operating temperatures?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>CPU: 30-50°C idle, up to 80°C under load. GPU: 30-50°C idle, up to 85°C under load. Consistently higher temperatures may indicate cooling issues.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    How much RAM do I need?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>8GB for basic use, 16GB for gaming and multitasking, 32GB+ for content creation and professional work.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Should I upgrade my SSD or RAM first?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>If you have less than 8GB RAM, upgrade RAM first. If you have a mechanical hard drive, upgrade to an SSD for the biggest performance boost.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Kato PC. Need immediate assistance? Email us at support@katoPC@gmail.com</p>
+        </div>
+    </footer>
+    <script src="support.js"></script>
 </body>
 </html>

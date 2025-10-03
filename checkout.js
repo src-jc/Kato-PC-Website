@@ -2,6 +2,7 @@ window.onload = function () {
     renderCheckout();
 };
 
+
 function renderCheckout() {
     let items = JSON.parse(localStorage.getItem("cart")) || [];
     let summaryList = document.getElementById("summary-items");
