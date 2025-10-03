@@ -49,9 +49,20 @@
             Your browser does not support the video tag.
         </video>
         <div class="intro-content">
-            <h2>Custom PCs, built your way.</h2>
+            <h2>built PC your way</h2>
             <p>Choose parts and bundles to create your custom powerful PC.</p>
+            <div id="searchBar" class="search-container">
+                <span class="search-icon" aria-hidden="true">🔍</span>
+                <input type="search" id="searchInput" placeholder="Search parts, e.g. Ryzen, RTX, B650..." aria-label="Search products">
+                <button id="clearSearch" class="clear-icon" aria-label="Clear search">✕</button>
+                <button id="searchBtn" class="search-btn">Search</button>
+            </div>
+            <div id="no-results">No matching products found.</div>
         </div>
+    </section>
+    <section id="search-results-section" style="display:none; padding: 40px 20px; text-align:center;">
+        <h2>Search Results</h2>
+        <div id="search-results" class="grid"></div>
     </section>
     <section id="bundles">
         <h2>Complete PC Bundles</h2>
