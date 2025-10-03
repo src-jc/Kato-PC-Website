@@ -71,21 +71,70 @@ function closeCart() {
 }
 
 // Cart toggle button on shop page
-const cartToggle = document.getElementById('cart-toggle');
-if (cartToggle) {
-    // initialize badge
-    const badge = cartToggle.querySelector('.cart-badge');
-    if (badge) badge.textContent = String(cart.length || 0);
+// If the cart-toggle markup was accidentally removed/omitted in a commit,
+// create a minimal fallback button at runtime so the UI remains usable.
+function ensureCartToggle() {
+    let ct = document.getElementById('cart-toggle');
+    if (!ct) {
+        ct = document.createElement('button');
+        ct.id = 'cart-toggle';
+        ct.setAttribute('aria-controls', 'cart-sidebar');
+        ct.setAttribute('aria-expanded', 'false');
+        ct.title = 'View cart';
 
-    cartToggle.addEventListener('click', () => {
-        const sidebar = document.getElementById('cart-sidebar');
-        if (!sidebar) return;
-        const isActive = sidebar.classList.toggle('active');
-        cartToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-        // shift the cart toggle button horizontally so it doesn't overlap the opened sidebar
-        if (isActive) cartToggle.classList.add('shifted'); else cartToggle.classList.remove('shifted');
-    });
+        const img = document.createElement('img');
+        img.className = 'cart';
+        img.alt = 'Shopping Cart';
+        // Use the existing 'shopping-cart.png' first (present in repo). If it fails,
+        // fall back to 'cart.png' and finally an inline SVG to avoid a broken icon.
+        img.src = 'Images/shopping-cart.png';
+        img.onerror = function () {
+            // try alternate filename
+            if (img.src && img.src.indexOf('cart.png') === -1) {
+                img.src = 'Images/cart.png';
+                return;
+            }
+            // final fallback: small inline SVG data URI (simple cart icon)
+            img.onerror = null; // avoid loop
+            img.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2300ffe7"><path d="M7 4h-2l-1 2h2l3.6 7.59-1.35 2.45C8.89 16.59 9.5 17 10.2 17h7v-2h-6.1c-.14 0-.25-.11-.28-.25L15 11h4V9h-4.42L13.1 6H7V4zm-1 18a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm12 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>';
+        };
+
+        const badge = document.createElement('span');
+        badge.className = 'cart-badge';
+        badge.textContent = '0';
+
+        const hidden = document.createElement('span');
+        hidden.className = 'visually-hidden';
+
+        ct.appendChild(img);
+        ct.appendChild(badge);
+        ct.appendChild(hidden);
+
+        // place it as a sibling to the #sidebar-toggle if present, otherwise append to body
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        if (sidebarToggle && sidebarToggle.parentNode) sidebarToggle.parentNode.insertBefore(ct, sidebarToggle.nextSibling);
+        else document.body.appendChild(ct);
+    }
+
+    // initialize badge
+    const badgeEl = ct.querySelector('.cart-badge');
+    if (badgeEl) badgeEl.textContent = String(cart.length || 0);
+
+    // idempotent click wiring
+    if (!ct._cartToggleWired) {
+        ct.addEventListener('click', () => {
+            const sidebar = document.getElementById('cart-sidebar');
+            if (!sidebar) return;
+            const isActive = sidebar.classList.toggle('active');
+            ct.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+            if (isActive) ct.classList.add('shifted'); else ct.classList.remove('shifted');
+        });
+        ct._cartToggleWired = true;
+    }
+    return ct;
 }
+
+const cartToggle = ensureCartToggle();
 window.onload = function () {
     updateCart(); //
 };
