@@ -654,7 +654,6 @@ footer {
     }
 }
 
-/* compact mode used while searching: hide heavy hero visuals and reduce height so search bar remains visible */
 .compact-search {
     height: auto !important;
     padding: 28px 0;

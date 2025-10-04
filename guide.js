@@ -10,7 +10,7 @@ document.querySelectorAll('.doc-nav-link').forEach(link => {
         const targetSection = document.querySelector(targetId);
 
         if (targetSection) {
-            const offset = 100; // Account for fixed navbar
+            const offset = 100;
             const targetPosition = targetSection.offsetTop - offset;
 
             window.scrollTo({
