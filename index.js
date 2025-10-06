@@ -45,19 +45,21 @@ function handleKeyDown(e) {
     }
 }
 
-devBtn.addEventListener('click', () => openDevOverlay());
-devBtn.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openDevOverlay(); } });
+if (devBtn && devOverlay && closeBtn) {
+    devBtn.addEventListener('click', () => openDevOverlay());
+    devBtn.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openDevOverlay(); } });
 
-closeBtn.addEventListener('click', () => closeDevOverlay());
+    closeBtn.addEventListener('click', () => closeDevOverlay());
 
-devOverlay.addEventListener('click', e => {
-    if (e.target === devOverlay) {
-        closeDevOverlay();
-    }
-});
+    devOverlay.addEventListener('click', e => {
+        if (e.target === devOverlay) {
+            closeDevOverlay();
+        }
+    });
 
-devOverlay.addEventListener('transitionend', () => {
-    if (!devOverlay.classList.contains('active')) {
-        devOverlay.blur && devOverlay.blur();
-    }
-});
+    devOverlay.addEventListener('transitionend', () => {
+        if (!devOverlay.classList.contains('active')) {
+            devOverlay.blur && devOverlay.blur();
+        }
+    });
+}

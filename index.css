@@ -446,49 +446,82 @@ footer {
     border-radius: 10px;
 }
 
-#developer-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    padding: 12px 20px;
-    background: rgba(0, 0, 0, 0.8);
-    color: #00ffe7;
-    border: 2px solid #00ffe7;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    z-index: 1000;
-    text-transform: uppercase;
-    box-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7;
-    transition: all 0.3s ease;
+.about-meta {
+    margin-top: 30px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    text-align: left;
+}
+.about-panel {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 28px;
+    align-items: start;
+    background: linear-gradient(145deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));
+    border: 1px solid rgba(255,255,255,0.03);
+    backdrop-filter: blur(6px) saturate(120%);
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    animation: panel-enter 420ms cubic-bezier(.2,.9,.2,1);
 }
 
-#developer-btn:hover {
-    background: rgba(0, 0, 0, 0.9);
-    box-shadow: 0 0 20px #00ffe7, 0 0 40px #00ffe7;
-    transform: translateY(-2px);
+#about-us .overlay-content .about-panel { max-width: 100%; box-sizing: border-box; }
+.company-desc {
+    color: #d6f7f0;
+    font-size: 2rem;
+    line-height: 1.7;
+    margin: 0;
+}
+.author-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    text-align: center;
+}
+.author-mini img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 999px;
+    border: 3px solid rgba(0,255,231,0.12);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6), 0 0 20px rgba(0,255,231,0.02) inset;
+}
+.author-info h3 { margin: 0; color: #00ffe7; font-size: 1.15rem; }
+.author-role { margin: 6px 0; color: #cfeee7; font-weight: 600; }
+.author-note { margin: 6px 0; color: #9fbfbd; font-size: 0.95rem; }
+.author-links { margin-top: 6px; display: flex; gap: 8px; }
+.author-links .dev-link { padding: 8px 12px; background: rgba(0,255,231,0.06); border: 1px solid rgba(0,255,231,0.12); color: #00ffe7; border-radius: 8px; text-decoration: none; font-weight: 700; }
+.author-links .dev-link:hover { background: rgba(0,255,231,0.12); transform: translateY(-2px); }
+
+
+.about-right { display: flex; align-items: center; justify-content: center; }
+.about-left { display: flex; align-items: center; }
+.about-left { display: flex; align-items: center; }
+.about-left .company-desc { margin-top: 18px; }
+.about-right .author-mini { background: rgba(0,0,0,0.06); padding: 10px 12px; border-radius: 12px; border: 1px solid rgba(0,255,231,0.04); gap: 12px; }
+.about-right .author-mini img { width: 86px; height: 86px; }
+.about-right .author-mini .author-info { max-width: 300px; }
+
+@media (max-width: 900px) {
+    .about-panel { grid-template-columns: 1fr; padding: 18px; }
+    .author-mini { flex-direction: row; text-align: left; align-items: center; }
+    .author-mini img { width: 86px; height: 86px; }
+    .author-info { text-align: left; }
+    .author-links { justify-content: flex-start; }
+    .about-right { padding: 10px 0; }
+    .about-right .author-mini { flex-direction: column; align-items: center; text-align: center; }
+    .about-right .author-mini img { width: 80px; height: 80px; }
+    .about-right .author-mini .author-info { max-width: 100%; }
+    .about-left .company-desc { margin-top: 10px; }
 }
 
-#close-developer {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background: rgba(0, 0, 0, 0.8);
-    color: #00ffe7;
-    border: 2px solid #00ffe7;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 0.95rem;
-    cursor: pointer;
-    text-transform: uppercase;
-    box-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7;
-    transition: all 0.3s ease;
-}
-
-#close-developer:hover {
-    background: rgba(0, 0, 0, 0.9);
-    box-shadow: 0 0 20px #00ffe7, 0 0 40px #00ffe7;
-    transform: translateY(-2px);
+@keyframes panel-enter {
+    from { transform: translateY(8px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 html {
@@ -501,7 +534,7 @@ html {
 section.video-section {
     position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -511,10 +544,9 @@ section.video-section {
 }
 section.video-section video {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     z-index: -2;
     filter: brightness(0.3);
