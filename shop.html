@@ -728,6 +728,26 @@
         <button id="checkout" onclick="checkout()">Checkout</button>
     </aside>
 </main>
+<div id="product-modal" class="product-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-action="close-modal"></div>
+    <div class="modal-panel" role="document" aria-labelledby="product-modal-title">
+        <button class="modal-x" id="modal-x" aria-label="Close product view">×</button>
+        <div class="modal-body">
+            <div class="modal-image-wrap">
+                <img id="modal-image" src="" alt="Product image">
+            </div>
+            <div class="modal-info">
+                <h3 id="product-modal-title"></h3>
+                <p id="product-modal-price" class="modal-price"></p>
+                <p id="product-modal-desc" class="modal-desc"></p>
+                <ul id="product-modal-specs" class="modal-specs"></ul>
+                <div class="modal-actions">
+                    <button id="modal-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <footer>
     <p>© 2025 Kato PC. All rights reserved</p>
 </footer>

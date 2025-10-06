@@ -1110,3 +1110,54 @@ div#searchBar.search-container {
     cursor: pointer;
 }
 
+.product-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+.product-modal[aria-hidden="false"] { display: flex; }
+.product-modal .modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+}
+.product-modal .modal-panel {
+    position: relative;
+    width: min(1000px, 96%);
+    max-width: 980px;
+    background: #071022;
+    border: 1px solid rgba(0,255,231,0.06);
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    display: flex;
+}
+.product-modal .modal-body { display: flex; gap: 20px; align-items: flex-start; }
+.modal-image-wrap { width: 320px; flex-shrink: 0; }
+.modal-image-wrap img { width: 100%; height: 220px; object-fit: contain; border-radius: 8px; }
+.modal-info { color: #e6f7f2; flex: 1; }
+.modal-price { color: #00ffe7; font-weight: 800; margin: 8px 0; }
+.modal-desc { margin: 8px 0 12px; color: #cfeee7; }
+.modal-specs { list-style: none; padding: 0; margin: 0 0 12px 0; }
+.modal-specs li { padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+.modal-actions { display: flex; gap: 12px; margin-top: 12px; }
+.modal-actions button { padding: 10px 14px; border-radius: 8px; font-weight: 700; cursor: pointer; }
+.modal-actions #modal-add-to-cart { background: linear-gradient(90deg,#00ffe7,#00bfa5); color: #031018; border: none; }
+.modal-actions #modal-add-to-cart:hover { transform: scale(1.03); }
+
+.view-product { background: transparent; border: 2px solid #00ffe7; color: #00ffe7; padding: 8px 12px; border-radius: 10px; margin-right: 8px; }
+.view-product:hover { background: rgba(0,255,231,0.06); transform: scale(1.04); }
+
+
+.item button.add-to-cart { padding: 8px 12px; border-radius: 8px; font-weight: 700; }
+.modal-x { position: absolute; right: 10px; top: 8px; background: transparent; border: none; color: #00ffe7; font-size: 22px; cursor: pointer; }
+
+@media (max-width: 900px) {
+    .product-modal .modal-body { flex-direction: column; }
+    .modal-image-wrap { width: 100%; }
+    .modal-image-wrap img { height: 180px; }
+}
+

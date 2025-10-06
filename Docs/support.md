@@ -58,7 +58,7 @@ Data shapes
   {
     "<key>": {
        "title": "...",
-       "steps": [{ "heading": "...", "items": ["...", "..."] }, ...],
+       "steps": [{ "heading": "...", "items": ["...", "..."] }],
        "warning": "..."
     }
   }

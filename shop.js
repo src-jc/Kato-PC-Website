@@ -69,10 +69,6 @@ function closeCart() {
     }
 }
 
-
-
-
-
 const sidebarBtn = document.getElementById('sidebar-toggle');
 const sidebar = document.getElementById('sidebar');
 
@@ -234,6 +230,20 @@ document.addEventListener('DOMContentLoaded', () => {
             btnEl.classList.add('add-to-cart');
             if (btnEl.getAttribute('onclick')) btnEl.removeAttribute('onclick');
         }
+
+        if (!item.querySelector('.view-product')) {
+            const vp = document.createElement('button');
+            vp.textContent = 'View product';
+            vp.className = 'view-product';
+            vp.addEventListener('click', (e) => {
+                e.preventDefault();
+                openProductModal(item);
+            });
+        
+            const existingBtn = item.querySelector('button.add-to-cart') || item.querySelector('button');
+            if (existingBtn) existingBtn.insertAdjacentElement('beforebegin', vp);
+            else item.appendChild(vp);
+        }
     });
 
     document.addEventListener('click', (e) => {
@@ -307,3 +317,82 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+const productModal = document.getElementById('product-modal');
+const modalImage = document.getElementById('modal-image');
+const modalTitle = document.getElementById('product-modal-title');
+const modalPrice = document.getElementById('product-modal-price');
+const modalDesc = document.getElementById('product-modal-desc');
+const modalSpecs = document.getElementById('product-modal-specs');
+const modalAddBtn = document.getElementById('modal-add-to-cart');
+const modalCloseBtn = document.getElementById('modal-close-btn');
+const modalX = document.getElementById('modal-x');
+
+let currentModalItem = null;
+
+function openProductModal(itemEl) {
+    if (!productModal) return;
+    currentModalItem = itemEl;
+    const img = itemEl.querySelector('img');
+    const title = itemEl.querySelector('h3')?.textContent.trim() || itemEl.dataset.name || '';
+    const priceText = (itemEl.querySelector('.price') || itemEl.querySelector('p'))?.textContent || '';
+    const price = priceText.replace(/[^0-9]/g, '') || itemEl.dataset.price || '';
+    const desc = itemEl.querySelector('.desc') ? itemEl.querySelector('.desc').textContent : (itemEl.querySelector('p') ? itemEl.querySelector('p').textContent : '');
+
+    modalImage.src = img ? img.src : '';
+    modalImage.alt = img ? img.alt || title : title;
+    modalTitle.textContent = title;
+    modalPrice.textContent = price ? `₱${Number(price).toLocaleString()}` : '';
+    
+    const synthDesc = (() => {
+        const base = (desc || '').trim();
+        if (!base || /^₱?\d+/.test(base)) {
+            const specs = [];
+            if (itemEl.dataset.specs) specs.push(...itemEl.dataset.specs.split('|'));
+            else {
+                const ps = Array.from(itemEl.querySelectorAll('p'));
+                ps.slice(1).forEach(p => { if (p.textContent && !/^₱?\d+/.test(p.textContent.trim())) specs.push(p.textContent.trim()); });
+            }
+            if (specs.length) return `${title} — ${specs.slice(0,3).join(', ')}.`;
+            return `${title} — High-quality component from trusted brands.`; 
+        }
+        return base;
+    })();
+
+    modalDesc.textContent = synthDesc;
+
+    modalSpecs.innerHTML = '';
+    if (itemEl.dataset.specs) {
+        itemEl.dataset.specs.split('|').forEach(s => {
+            const li = document.createElement('li'); li.textContent = s; modalSpecs.appendChild(li);
+        });
+    } else {
+
+        const ps = Array.from(itemEl.querySelectorAll('p'));
+        ps.slice(1).forEach(p => { const li = document.createElement('li'); li.textContent = p.textContent; modalSpecs.appendChild(li); });
+    }
+
+    productModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProductModal() {
+    if (!productModal) return;
+    productModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    currentModalItem = null;
+}
+
+if (modalAddBtn) modalAddBtn.addEventListener('click', () => {
+    if (!currentModalItem) return;
+    const name = currentModalItem.dataset.name || currentModalItem.querySelector('h3')?.textContent.trim();
+    const price = parseInt(currentModalItem.dataset.price || (currentModalItem.querySelector('.price')?.textContent.replace(/[^0-9]/g, '') || ''), 10) || 0;
+    addToCart(name, price);
+    closeProductModal();
+});
+if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeProductModal);
+if (modalX) modalX.addEventListener('click', closeProductModal);
+if (productModal) productModal.addEventListener('click', (e) => {
+    if (e.target && e.target.dataset && e.target.dataset.action === 'close-modal') closeProductModal();
+});
+
