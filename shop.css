@@ -134,8 +134,8 @@ button:hover {
 }
 
 .bundle .bundle-parts img {
-    width: 70px;
-    height: 70px;
+    width: 140px;
+    height: 140px;
     object-fit: contain;
     filter: drop-shadow(0 0 12px rgba(0,255,231,0.5));
     transition: transform 0.3s;
